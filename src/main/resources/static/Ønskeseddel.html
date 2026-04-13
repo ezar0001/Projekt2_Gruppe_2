@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <title>Min ønskeseddel</title>
+
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          min-height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+        }
+
+        .container {
+          width: 420px;
+          background: white;
+          padding: 25px;
+          border-radius: 16px;
+          box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        h1 {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .input-row {
+          display: flex;
+          gap: 10px;
+        }
+
+        input {
+          flex: 1;
+          padding: 12px;
+          border: 1px solid #ddd;
+          border-radius: 10px;
+          outline: none;
+        }
+
+        input:focus {
+          border-color: #ff7a9c;
+          box-shadow: 0 0 5px rgba(255, 122, 156, 0.4);
+        }
+
+        button {
+          padding: 12px 14px;
+          border: none;
+          background: #ff7a9c;
+          color: white;
+          border-radius: 10px;
+          cursor: pointer;
+          font-weight: bold;
+        }
+
+        button:hover {
+          background: #ff4f7a;
+          transform: scale(1.05);
+        }
+
+        ul {
+          margin-top: 20px;
+          padding: 0;
+        }
+
+        li {
+          list-style: none;
+          background: #f8f8f8;
+          margin-bottom: 10px;
+          padding: 12px;
+          border-radius: 12px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+
+        li:hover {
+          background: #f1f1f1;
+        }
+
+        .btn-group {
+          display: flex;
+          gap: 8px;
+          align-items: center;
+        }
+
+        .delete {
+          background: transparent;
+          border: none;
+          color: red;
+          font-size: 16px;
+          cursor: pointer;
+        }
+
+        .edit {
+          background: transparent;
+          border: none;
+          cursor: pointer;
+          font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎁 Min ønskeseddel</h1>
+
+    <div class="input-row">
+        <input type="text" id="wishInput" placeholder="Skriv dit ønske...">
+        <button onclick="addWish()">Tilføj</button>
+    </div>
+
+    <ul id="wishList"></ul>
+</div>
+
+<script>
+    function addWish() {
+      const input = document.getElementById("wishInput");
+      const value = input.value.trim();
+
+      if (value === "") return;
+
+      createWish(value);
+
+      input.value = "";
+    }
+
+    function createWish(text) {
+      const li = document.createElement("li");
+
+      const span = document.createElement("span");
+      span.textContent = text;
+
+      const btnGroup = document.createElement("div");
+      btnGroup.className = "btn-group";
+
+      // EDIT KNAP
+      const editBtn = document.createElement("button");
+      editBtn.className = "edit";
+      editBtn.textContent = "✏️";
+
+      editBtn.onclick = function () {
+        const newText = prompt("Rediger dit ønske:", span.textContent);
+        if (newText && newText.trim() !== "") {
+          span.textContent = newText.trim();
+        }
+      };
+
+      // DELETE KNAP
+      const deleteBtn = document.createElement("button");
+      deleteBtn.className = "delete";
+      deleteBtn.textContent = "✕";
+
+      deleteBtn.onclick = function () {
+        li.remove();
+      };
+
+      btnGroup.appendChild(editBtn);
+      btnGroup.appendChild(deleteBtn);
+
+      li.appendChild(span);
+      li.appendChild(btnGroup);
+
+      document.getElementById("wishList").appendChild(li);
+    }
+</script>
+
+</body>
+</html>
