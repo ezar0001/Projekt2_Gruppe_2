@@ -1,19 +1,23 @@
 package org.projekt2_gruppe_2.model;
 
+import java.time.LocalDate;
+
 public class Onskeseddel {
     int id;
     int brugerId;
     String navn;
-    String dato;
+    LocalDate dato;
 
-    public Onskeseddel(String dato, String navn, int id, int brugerId) {
+
+
+    public Onskeseddel(int id, String navn,LocalDate dato, int brugerId) {
         this.dato = dato;
         this.navn = navn;
         this.id = id;
         this.brugerId = brugerId;
     }
 
-    public Onskeseddel(String dato, String navn, int id) {
+    public Onskeseddel(int id, String navn,LocalDate dato) {
         this.dato = dato;
         this.navn = navn;
         this.id = id;
@@ -27,11 +31,11 @@ public class Onskeseddel {
         this.id = id;
     }
 
-    public String getDato() {
+    public LocalDate getDato() {
         return dato;
     }
 
-    public void setDato(String dato) {
+    public void setDato(LocalDate dato) {
         this.dato = dato;
     }
 

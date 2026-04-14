@@ -4,12 +4,12 @@ public class Onske {
     int id;
     int onskeSeddelId;
     String navn;
-    String pris;
+    int pris;
     String img;
     String link;
     int antal;
 
-    public Onske(int id, int antal, String link, String img, String pris, String navn, int onskeSeddelId) {
+    public Onske(int id, String navn, int pris, String img, String link, int antal, int onskeSeddelId) {
         this.id = id;
         this.antal = antal;
         this.link = link;
@@ -19,7 +19,7 @@ public class Onske {
         this.onskeSeddelId = onskeSeddelId;
     }
 
-    public Onske(int id, String navn, String pris, String img, String link, int antal) {
+    public Onske(int id, String navn, int pris, String img, String link, int antal) {
         this.id = id;
         this.navn = navn;
         this.pris = pris;
@@ -60,11 +60,11 @@ public class Onske {
         this.img = img;
     }
 
-    public String getPris() {
+    public int getPris() {
         return pris;
     }
 
-    public void setPris(String pris) {
+    public void setPris(int pris) {
         this.pris = pris;
     }
 
@@ -76,11 +76,4 @@ public class Onske {
         this.navn = navn;
     }
 
-    public int getOnskeSeddelId() {
-        return onskeSeddelId;
-    }
-
-    public void setOnskeSeddelId(int onskeSeddelId) {
-        this.onskeSeddelId = onskeSeddelId;
-    }
 }
