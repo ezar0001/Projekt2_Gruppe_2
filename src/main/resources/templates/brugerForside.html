@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Page</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+
+</head>
+
+
+<body>
+
+
+<nav>
+    <div class="logo">
+        <a th:href="@{/}"><img th:src="@{Logo.png}" alt="Logo"></a>
+    </div>
+    <div>
+        <a th:href="@{/}">Log Ud</a>
+    </div>
+</nav>
+
+
+<div class="user-section">
+    <img th:src="@{gave.jpg}" alt="Bruger Logo">
+    <div class="username">John Doe</div>
+</div>
+
+
+<div class="seddel-container">
+    <div class="seddel" th:each="seddel:${onskeseddelList}">
+        <a th:href="@{/onskeseddel}"><img th:src="@{/gave.jpg}" alt="Ønskeseddel billede"></a>
+        <div class="seddel-name" th:text="${seddel.navn}">navn</div>
+        <div class="seddel-id" th:text="${seddel.id}">id</div>
+
+    </div>
+</div>
+
+</body>
+</html>
