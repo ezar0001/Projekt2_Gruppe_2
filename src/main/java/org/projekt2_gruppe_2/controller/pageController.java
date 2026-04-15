@@ -1,6 +1,7 @@
 package org.projekt2_gruppe_2.controller;
 
 import org.projekt2_gruppe_2.config.InitData;
+import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +28,17 @@ public class pageController {
         onskeseddelList.addAll(initdata.getOnskeseddelList());
 
         model.addAttribute("onskeseddelList",onskeseddelList);
-        System.out.println("list size:"+onskeseddelList.size());
 
         return "brugerForside";
+    }
+
+    @GetMapping("/seddel")
+    public String seddelPage(Model model){
+        ArrayList<Onske>onskeList = new ArrayList<>();
+        onskeList.addAll(initdata.getOnskeList());
+        System.out.println("herherherh"+onskeList.size());
+        model.addAttribute("onskeList",onskeList);
+        return "onskeseddel";
     }
 
 }
