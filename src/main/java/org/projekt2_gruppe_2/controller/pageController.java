@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.ArrayList;
 
@@ -33,11 +34,17 @@ public class pageController {
     }
 
     @GetMapping("/seddel")
-    public String seddelPage(Model model){
+    public String seddelPage(@RequestParam int id, Model model){
+
         ArrayList<Onske>onskeList = new ArrayList<>();
-        onskeList.addAll(initdata.getOnskeList());
-        System.out.println("herherherh"+onskeList.size());
+        for(Onske o: initdata.getOnskeList()){
+            if (o.getOnskeSeddelId()==id){
+                onskeList.add(o);
+            }
+        }
+
         model.addAttribute("onskeList",onskeList);
+
         return "onskeseddel";
     }
 
