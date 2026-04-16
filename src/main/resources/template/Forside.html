@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<html lang="da">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,6 +15,14 @@
     </nav>
 </header>
 
+<div style="text-align:center; margin-top:50px;">
+    <h2>Login</h2>
+    <form action="/login"method="post">
+        <input type="text" name="username" placeholder="Brugernavn " required><br><br>
+        <input type="password" name="kode" placeholder="Kodeord"required><br><br>
+        <input type="submit">Login</button>
+    </form>
+</div>
 
 </body>
 </html>
