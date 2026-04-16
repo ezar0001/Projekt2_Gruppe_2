@@ -76,4 +76,11 @@ public class Onske {
         this.navn = navn;
     }
 
+    public int getOnskeSeddelId() {
+        return onskeSeddelId;
+    }
+
+    public void setOnskeSeddelId(int onskeSeddelId) {
+        this.onskeSeddelId = onskeSeddelId;
+    }
 }

@@ -17,8 +17,10 @@ public class InitData {
     private ArrayList<Bruger>brugerList= new ArrayList<>();
 
 public InitData(){
-    onskeList.add(new Onske(1,"OPtto", 1000, "Gave.jpg", "link", 2));
-    onskeList.add(new Onske(2,"Lotto", 3000, "Gave.jpg", "link", 2));
+    onskeList.add(new Onske(1,"OPtto", 1000, "Gave.jpg", "link", 2,1));
+    onskeList.add(new Onske(2,"Lotto", 3000, "Gave.jpg", "link", 2,1));
+    onskeList.add(new Onske(3,"toilet", 5000, "Gave.jpg", "link", 2,2));
+    onskeList.add(new Onske(4,"badekar", 6000, "Gave.jpg", "link", 2,2));
     onskeseddelList.add(new Onskeseddel(1, "Julegaveonsker", LocalDate.of(2026,12,24)));
     onskeseddelList.add(new Onskeseddel(2, "FødselsdagsØnsker", LocalDate.of(2026,12,24)));
 
