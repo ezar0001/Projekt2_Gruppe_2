@@ -9,14 +9,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Component
-public class initdata {
+public class InitData {
     private ArrayList<Onske> onskeList= new ArrayList<>();
 
     private ArrayList<Onskeseddel>onskeseddelList = new ArrayList();
 
     private ArrayList<Bruger>brugerList= new ArrayList<>();
 
-public initdata(){
+public InitData(){
     onskeList.add(new Onske(1,"OPtto", 1000, "Gave.jpg", "link", 2));
     onskeList.add(new Onske(2,"Lotto", 3000, "Gave.jpg", "link", 2));
     onskeseddelList.add(new Onskeseddel(1, "Julegaveonsker", LocalDate.of(2026,12,24)));
@@ -27,8 +27,5 @@ public initdata(){
 public ArrayList<Onske> getOnskeList(){return onskeList;}
 public ArrayList<Onskeseddel> getOnskeseddelList(){return onskeseddelList;}
 public ArrayList<Bruger> getBrugerList(){return brugerList;}
-
-
-
 
 }

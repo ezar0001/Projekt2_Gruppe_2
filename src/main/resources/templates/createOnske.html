@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Ønskeseddel</title>
+    <link rel="stylesheet" th:href="@{onskeseddel.css}">
+</head>
+<body>
+<div class="container">
+    <h2>Opret ny Onskeseddel</h2>
+    <form th:action="@{saveCreateOnske}" method="post">
+        <label for="Navn">Name:</label>
+        <input type="text" id="navn" name="navn" placeholder="Enter name" required>
+
+        <label for="pris">Pris:</label>
+        <input type="number" id="pris" name="pris" placeholder="Enter pris" required>
+
+        <label for="link">Type:</label>
+        <input type="text" id="link" name="link" placeholder="Enter link" required>
+
+        <label for="antal">Color:</label>
+        <input type="number" id="antal" name="antal" placeholder="Enter antal" required>
+
+        <button type="submit">Create Car</button>
+    </form>
+</div>
+
+</body>
+</html>

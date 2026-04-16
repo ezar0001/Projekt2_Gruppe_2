@@ -1,9 +1,10 @@
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
 }
 
-.navbar {
+nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,11 +13,11 @@ body {
     color: white;
 }
 
-.navbar img {
+.nav img {
     height: 40px;
 }
 
-.navbar a {
+.nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
@@ -25,8 +26,9 @@ body {
 /* USER SECTION */
 .user-section {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
+    gap:10px;
     padding: 20px;
 }
 
@@ -38,9 +40,13 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
+.seddel-container{
+    display:flex;
+    flex-wrap:wrap;
+    padding:10px;
+}
 
-/* CONTENT BOX */
-.box {
+.seddel{
     width: 200px;
     margin: 20px;
     padding: 10px;
@@ -49,12 +55,18 @@ body {
     border-radius: 8px;
 }
 
-.box img {
+.seddel img {
     width: 100%;
     border-radius: 5px;
 }
 
-.box-name {
+.seddel-name {
     margin-top: 10px;
     font-size: 16px;
+    font-weight:bold;
+}
+
+.seddel-id{
+    font-size:13px;
+    color:#888;
 }
