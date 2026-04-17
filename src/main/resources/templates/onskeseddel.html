@@ -8,30 +8,51 @@
 </head>
 <body>
 <div class="container">
+
+    <form action="/addWish" method="post" style="margin-bottom:20px;">
+
+        <label for="name">Navn</label>
+        <input type="text" id="name" name="navn" placeholder="Navn"><br><br>
+
+        <label for="pris">Pris</label>
+        <input type="number" id="pris" name="pris" placeholder="Pris"><br><br>
+
+        <label for="link">Link</label>
+        <input type="text" id="link" name="link" placeholder="Link"><br><br>
+
+        <button type="submit"> Tilføj ønske </button>
+
+    </form>
+
     <div class="square" th:each="onske : ${onskeList}">
         <img th:src="@{gave.jpg}" alt="Car Image" />
         <div>
             <label>ID:</label>
             <span th:text="${onske.id}">ID</span>
         </div>
+
         <div>
             <label>Navn:</label>
             <span th:text="${onske.navn}">Navn</span>
         </div>
+
         <div>
             <label>Pris:</label>
             <span th:text="${onske.pris}">Pris</span>
         </div>
+
         <div>
             <label>Link</label>
-            <span th:text="${onske.link}">Link</span>
+            <a th:href="${onske.link}" target="_blank">Se produkt</a>
         </div>
+
         <div>
             <label>Antal:</label>
             <span th:text="${onske.antal}">Antal</span>
         </div>
+
     </div>
 </div>
 
-</body>
+</body>$
 </html>
