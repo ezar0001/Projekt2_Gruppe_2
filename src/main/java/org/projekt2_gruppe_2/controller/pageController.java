@@ -24,6 +24,7 @@ public class pageController {
         return "forside";
     }
 
+
     @GetMapping("/bruger")
     public String brugerPage(Model model){
         ArrayList<Onskeseddel> onskeseddelList = new ArrayList<>();
