@@ -13,23 +13,27 @@ nav {
     color: white;
 }
 
-.nav img {
+nav img {
     height: 40px;
 }
 
-.nav a {
+nav a {
     color: white;
     text-decoration: none;
     font-weight: bold;
 }
 
-/* USER SECTION */
+
 .user-section {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     gap:10px;
     padding: 20px;
+    width: 100%;
+}
+
+.create-seddel{
+    margin-left:auto;
 }
 
 .user-section img {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Controller
@@ -73,5 +74,19 @@ public class pageController {
         initdata.getOnskeList().add(new Onske(newId,navn,pris, "gave.jpg",link,1,1));
 
         return "redirect:/seddel?id=1";
+    }
+
+    @GetMapping("/createSeddel")
+    public String createSeddel(){
+        return "createSeddel";
+    }
+
+    @PostMapping("/saveCreateSeddel")
+    public String createSeddel (@RequestParam String navn, @RequestParam LocalDate dato){
+        int newId = initdata.getOnskeseddelList().size()+1;
+
+        initdata.getOnskeseddelList().add(new Onskeseddel(newId,navn,dato));
+
+        return "redirect:/brugerForside?id=1";
     }
 }
