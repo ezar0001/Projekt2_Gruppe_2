@@ -8,8 +8,8 @@
 <body>
 <div class="container">
    <h2>Opret ny Onskeseddel</h2>
-    <form th:action="@{saveCreateSeddel}" method="post">
-        <label for="Navn">Name:</label>
+    <form th:action="@{/saveCreateSeddel}" method="post">
+        <label for="navn">Name:</label>
         <input type="text" id="navn" name="navn" placeholder="Enter name" required>
 
         <label for="dato">Dato:</label>

@@ -91,6 +91,6 @@ public class pageController {
 
         initdata.getOnskeseddelList().add(new Onskeseddel(newId,navn,dato));
 
-        return "redirect:/brugerForside?id=1";
+        return "redirect:/bruger";
     }
 }

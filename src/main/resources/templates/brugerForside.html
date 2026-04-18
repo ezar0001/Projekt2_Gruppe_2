@@ -31,13 +31,20 @@
 
 
 <div class="seddel-container">
-    <div class="seddel" th:each="seddel:${onskeseddelList}">
-        <a th:href="@{/seddel(id=${seddel.id})}"><img th:src="@{/gave.jpg}" alt="Ønskeseddel billede"></a>
-        <div class="seddel-name" th:text="${seddel.navn}">navn</div>
-        <div class="seddel-id" th:text="${seddel.id}">id</div>
-        <div class="seddel-name" th:text="${seddel.dato}">dato</div>
+    <div class="seddel" th:each="seddel : ${onskeseddelList}">
+
+        <a th:href="@{/seddel(id=${seddel.id})}">
+            <img th:src="@{/gave.jpg}" alt="Ønskeseddel billede">
+        </a>
+
+        <div class="seddel-name" th:text="${seddel.navn}"></div>
+
+        <div class="seddel-id" th:text="${seddel.id}"></div>
+
+        <div class="seddel-name" th:text="${seddel.dato}"></div>
 
     </div>
+
 </div>
 
 </body>

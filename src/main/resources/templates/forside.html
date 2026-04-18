@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ønskeseddel</title>
-    <link rel="stylesheet" th:href="@{forside.css}">
+    <link rel="stylesheet" th:href="@{/forside.css}">
 </head>
 <body>
 
@@ -13,7 +13,7 @@
     <div class="logo">Ønskeseddel</div>
     <nav>
         <a th:href="@{/login}">Log ind</a>
-        <a href="#">Opret</a>
+        <a th:href="@{/createSeddel}">Opret</a>
     </nav>
 </header>
 
@@ -28,7 +28,9 @@
     <p>
         Perfekt til fødselsdage, jul og andre særlige lejligheder.
     </p>
-    <a class="button">Kom i gang!</a>
+    <a class="button" th:href="@{login}">Kom i gang!</a>
+
+
 </section>
 
 </body>
