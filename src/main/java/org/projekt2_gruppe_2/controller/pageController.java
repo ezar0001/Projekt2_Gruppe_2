@@ -25,6 +25,10 @@ public class pageController {
         return "forside";
     }
 
+    @GetMapping("/login")
+    public String loginPage(){
+        return "Login";
+    }
 
     @GetMapping("/bruger")
     public String brugerPage(Model model){
