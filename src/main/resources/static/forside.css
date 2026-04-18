@@ -38,6 +38,7 @@ nav a {
     text-align: center;
     height: 80vh;
     padding: 20px;
+    background: linear-gradient(to bottom, orange, white);
 }
 
 .hero h1 {
