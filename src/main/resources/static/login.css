@@ -1,9 +1,80 @@
-.login-container {
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Baggrund */
+body {
+    height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #ff8c00, #ffffff);
+}
+
+/* Container */
+.login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 12px;
+    width: 300px;
     text-align: center;
-    height: 80vh;
-    padding: 20px;
-    background: linear-gradient(to bottom, orange, white);}
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Titel */
+.login-container h2 {
+    margin-bottom: 10px;
+}
+
+/* Info tekst */
+.login-container p {
+    font-size: 14px;
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Inputs */
+.login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+
+    border: 1px solid #ddd;
+    border-radius: 8px;
+
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+/* Fokus effekt */
+.login-container input:focus {
+    outline: none;
+    border-color: #ff8c00;
+    box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+}
+
+/* Knap */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+
+    background: #ff8c00;
+    color: white;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+/* Hover */
+.login-container button:hover {
+    background: #e67600;
+}
