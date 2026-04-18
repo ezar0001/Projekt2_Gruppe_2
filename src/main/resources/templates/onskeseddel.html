@@ -24,34 +24,6 @@
 
     </form>
 
-    <div class="square" th:each="onske : ${onskeList}">
-        <img th:src="@{gave.jpg}" alt="Car Image" />
-        <div>
-            <label>ID:</label>
-            <span th:text="${onske.id}">ID</span>
-        </div>
-
-        <div>
-            <label>Navn:</label>
-            <span th:text="${onske.navn}">Navn</span>
-        </div>
-
-        <div>
-            <label>Pris:</label>
-            <span th:text="${onske.pris}">Pris</span>
-        </div>
-
-        <div>
-            <label>Link</label>
-            <a th:href="${onske.link}" target="_blank">Se produkt</a>
-        </div>
-
-        <div>
-            <label>Antal:</label>
-            <span th:text="${onske.antal}">Antal</span>
-        </div>
-
-    </div>
 </div>
 
 </body>
