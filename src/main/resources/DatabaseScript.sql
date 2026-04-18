@@ -20,7 +20,7 @@ CREATE TABLE onskeseddel(
                             bruger_id INT NOT NULL,
                             FOREIGN KEY(bruger_id) REFERENCES bruger(id),
                             navn VARCHAR(100) NOT NULL,
-                            dato VARCHAR (50) NOT NULL
+                            dato DATE NOT NULL
 );
 
 INSERT INTO onskeseddel(bruger_id,navn, dato) VALUES
