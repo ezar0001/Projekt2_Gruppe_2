@@ -4,10 +4,12 @@ import org.projekt2_gruppe_2.config.InitData;
 import org.projekt2_gruppe_2.model.Bruger;
 import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
+import org.projekt2_gruppe_2.repository.OnskeseddelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -20,6 +22,9 @@ public class pageController {
     @Autowired
     InitData initdata;
 
+    @Autowired
+    OnskeseddelRepository seddelRepo;
+
     @GetMapping("/")
     public String mainPage(){
         return "forside";
@@ -28,15 +33,15 @@ public class pageController {
 
     @GetMapping("/bruger")
     public String brugerPage(Model model){
-        ArrayList<Onskeseddel> onskeseddelList = new ArrayList<>();
+        ArrayList<Onskeseddel> seddelList = new ArrayList<>();
 
-        onskeseddelList.addAll(initdata.getOnskeseddelList());
+        seddelList.addAll(seddelRepo.getAllSeddel());
 
-        model.addAttribute("onskeseddelList",onskeseddelList);
+        model.addAttribute("seddelList",seddelList);
 
         return "brugerForside";
     }
-
+// skal nok også ind i seddelController
     @GetMapping("/seddel")
     public String seddelPage(@RequestParam int id, Model model){
 
@@ -66,7 +71,7 @@ public class pageController {
         return "forside";
     }
 
-
+    //skal ind i onskeController
     @PostMapping("/addWish")
     public String addWish (@RequestParam String navn, @RequestParam int pris,@RequestParam String link){
         int newId = initdata.getOnskeList().size()+1;
@@ -75,18 +80,21 @@ public class pageController {
 
         return "redirect:/seddel?id=1";
     }
-
+//skal ind i seddelController
     @GetMapping("/createSeddel")
     public String createSeddel(){
         return "createSeddel";
     }
-
+    //skal ind i seddelController
     @PostMapping("/saveCreateSeddel")
-    public String createSeddel (@RequestParam String navn, @RequestParam LocalDate dato){
+    public String createSeddel (@RequestParam String navn, @RequestParam String dato){
+        LocalDate localdate = LocalDate.parse(dato);
         int newId = initdata.getOnskeseddelList().size()+1;
 
-        initdata.getOnskeseddelList().add(new Onskeseddel(newId,navn,dato));
+        initdata.getOnskeseddelList().add(new Onskeseddel(newId,navn,localdate));
 
-        return "redirect:/brugerForside?id=1";
+        return "redirect:/bruger";
     }
+
+
 }

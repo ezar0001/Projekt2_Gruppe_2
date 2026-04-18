@@ -23,6 +23,10 @@ public class Onskeseddel {
         this.id = id;
     }
 
+    public Onskeseddel (){
+
+    }
+
     public int getId() {
         return id;
     }
