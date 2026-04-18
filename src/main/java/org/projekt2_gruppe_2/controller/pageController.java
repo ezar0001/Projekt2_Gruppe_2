@@ -85,13 +85,15 @@ public class pageController {
     public String createSeddel(){
         return "createSeddel";
     }
+
     //skal ind i seddelController
     @PostMapping("/saveCreateSeddel")
     public String createSeddel (@RequestParam String navn, @RequestParam String dato){
-        LocalDate localdate = LocalDate.parse(dato);
-        int newId = initdata.getOnskeseddelList().size()+1;
+        LocalDate localdateDato = LocalDate.parse(dato);
+//        int newId = initdata.getOnskeseddelList().size()+1;
 
-        initdata.getOnskeseddelList().add(new Onskeseddel(newId,navn,localdate));
+       Onskeseddel seddel= new Onskeseddel(navn, localdateDato);
+       seddelRepo.save(seddel);
 
         return "redirect:/bruger";
     }

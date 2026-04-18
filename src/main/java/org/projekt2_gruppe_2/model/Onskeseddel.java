@@ -23,6 +23,11 @@ public class Onskeseddel {
         this.id = id;
     }
 
+    public Onskeseddel (String navn, LocalDate dato){
+        this.navn=navn;
+        this.dato=dato;
+
+    }
     public Onskeseddel (){
 
     }

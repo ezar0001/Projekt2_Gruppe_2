@@ -1,15 +1,14 @@
 package org.projekt2_gruppe_2.repository;
 
 import org.projekt2_gruppe_2.config.InitData;
+import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 @Repository
@@ -44,4 +43,56 @@ public class OnskeseddelRepository {
     }
     return seddelList;
     }
+
+
+    public Onskeseddel getSeddelbyID(int id){
+      Onskeseddel seddel = new Onskeseddel();
+      String sql ="SELECT *FROM onskeseddel WHERE id=?";
+
+      try(Connection connection = dataSource.getConnection();
+      PreparedStatement statement = connection.prepareStatement(sql)){
+          statement.setInt(1,id);
+
+          try(ResultSet resultSet=statement.executeQuery()){
+              if(resultSet.next()){
+                  seddel.setId(resultSet.getInt("id"));
+                  seddel.setNavn(resultSet.getString("navn"));
+                  seddel.setDato(resultSet.getDate("dato").toLocalDate());
+              }
+          }
+      }catch (SQLException e){
+          e.printStackTrace();
+      }
+      return seddel;
+    }
+
+    public void deleteSeddel(int id){
+        String sql="DELETE FROM onskeseddel WHERE id=?";
+
+        try(Connection connection=dataSource.getConnection();
+            PreparedStatement statement=connection.prepareStatement(sql)){
+
+            statement.setInt(1,id);
+
+            statement.executeUpdate();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+public void save (Onskeseddel seddel){
+     String sql="INSERT INTO onskeseddel(navn, dato) VALUES (?,?)";
+
+     try(Connection connection =dataSource.getConnection();
+     PreparedStatement statement = connection.prepareStatement(sql)){
+        statement.setString(1,seddel.getNavn());
+        statement.setDate(2, Date.valueOf(seddel.getDato()));
+
+        statement.executeUpdate();
+
+    }catch(SQLException e){
+         e.printStackTrace();
+     }
+}
+
 }
