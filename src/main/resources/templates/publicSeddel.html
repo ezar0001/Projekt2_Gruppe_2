@@ -1,10 +1,47 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MainPage</title>
+  <link rel="stylesheet" th:href="@{onskeseddel.css}">
 </head>
 <body>
-$END$
+<div class="container">
+  <h1 th:text="${seddel.navn}">Navn på seddel</h1>
+  <p>Dato: <span th:text="${seddel.dato}">Dato</span></p>
+
+  <div class="square" th:each="onske : ${onskeList}">
+  <img th:src="@{gave.jpg}" alt="Car Image" />
+  <div>
+    <label>ID:</label>
+    <span th:text="${onske.id}">ID</span>
+  </div>
+
+  <div>
+    <label>Navn:</label>
+    <span th:text="${onske.navn}">Navn</span>
+  </div>
+
+  <div>
+    <label>Pris:</label>
+    <span th:text="${onske.pris}">Pris</span>
+  </div>
+
+  <div>
+    <label>Link</label>
+    <a th:href="${onske.link}" target="blank">Se produkt</a>
+  </div>
+
+  <div>
+    <label>Antal:</label>
+    <span th:text="${onske.antal}">Antal</span>
+  </div>
+
+
+</div>
+
+</div>
 </body>
 </html>

@@ -62,8 +62,26 @@ public class pageController {
         return "onskeseddel";
     }
 
-    
+    @GetMapping("/share")
+    public String shareSeddel(@RequestParam int id, Model model) {
 
+        Onskeseddel seddel = seddelRepo.getSeddelbyID(id);
+
+
+        ArrayList<Onske> onskeList = new ArrayList<>();
+        for (Onske o : onskeRepo.getAllOnske()) {
+            if (o.getOnskeSeddelId() == id) {
+                onskeList.add(o);
+            }
+        }
+
+
+        model.addAttribute("seddel", seddel);
+        model.addAttribute("onskeList", onskeList);
+
+
+        return "publicSeddel";
+    }
     //ny
 
 
