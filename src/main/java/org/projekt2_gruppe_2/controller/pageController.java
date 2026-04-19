@@ -71,14 +71,47 @@ public class pageController {
     }
 
 
+
     @PostMapping("/addWish")
-    public String addWish (@RequestParam String navn, @RequestParam int pris,@RequestParam String link){
-        int newId = initdata.getOnskeList().size()+1;
+    public String addWish(@RequestParam String navn,
+                          @RequestParam int pris,
+                          @RequestParam String link,
+                          @RequestParam int seddelId) {
 
-        initdata.getOnskeList().add(new Onske(newId,navn,pris, "gave.jpg",link,1,1));
+        int newId = initdata.getOnskeList().size() + 1;
 
-        return "redirect:/seddel?id=1";
+        initdata.getOnskeList().add(
+                new Onske(newId, navn, pris, "gave.jpg", link, 1, seddelId)
+        );
+
+        return "redirect:/seddel?id=" + seddelId;
     }
+
+    @GetMapping("/deleteWish")
+    public String deleteWish(@RequestParam int id,
+                             @RequestParam int seddelId){
+
+        initdata.getOnskeList().removeIf(o -> o.getId() == id);
+
+        return "redirect:/seddel?id=" + seddelId;}
+
+
+    @GetMapping("/editWish")
+    public String editWish(@RequestParam int id,
+                           @RequestParam int seddelId,
+                           Model model){
+
+        for(Onske o : initdata.getOnskeList()){
+            if(o.getId() == id){
+                model.addAttribute("onske", o);
+            }
+        }
+
+        model.addAttribute("seddelId", seddelId);
+
+        return "editWish";
+    }
+
 
     @GetMapping("/createSeddel")
     public String createSeddel(){
@@ -93,4 +126,24 @@ public class pageController {
 
         return "redirect:/bruger";
     }
+
+    @PostMapping("/updateWish")
+    public String updateWish(@RequestParam int id,
+                             @RequestParam String navn,
+                             @RequestParam int pris,
+                             @RequestParam String link,
+                             @RequestParam int seddelId){
+
+        for(Onske o : initdata.getOnskeList()){
+            if(o.getId() == id){
+                o.setNavn(navn);
+                o.setPris(pris);
+                o.setLink(link);
+            }
+        }
+
+        return "redirect:/seddel?id=" + seddelId;
+    }
+
+
 }

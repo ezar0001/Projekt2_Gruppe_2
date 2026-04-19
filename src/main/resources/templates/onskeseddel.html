@@ -11,6 +11,8 @@
 
     <form action="/addWish" method="post" style="margin-bottom:20px;">
 
+        <input type="hidden" name="seddelId" th:value="${param.id}">
+
         <label for="name">Navn</label>
         <input type="text" id="name" name="navn" placeholder="Navn"><br><br>
 
@@ -23,6 +25,28 @@
         <button type="submit"> Tilføj ønske </button>
 
     </form>
+
+
+    <div class="square" th:each="onske : ${onskeList}">
+
+        <img th:src="@{gave.jpg}" th:alt="${onske.navn}">
+
+        <p th:text="${onske.navn}"></p>
+        <p th:text="${onske.pris}"></p>
+
+        <a th:href="${onske.link}" target="_blank">Se produkt</a>
+
+        <br>
+
+        <a th:href="@{/deleteWish(id=${onske.id}, seddelId=${param.id})}">
+            <button>Slet</button>
+        </a>
+
+        <a th:href="@{/editWish(id=${onske.id}, seddelId=${param.id})}">
+            <button>Rediger</button>
+        </a>
+
+    </div>
 
 </div>
 

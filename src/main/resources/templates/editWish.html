@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Rediger ønske</title>
+</head>
+<body>
+
+<h2>Rediger ønske</h2>
+
+<form action="/updateWish" method="post">
+
+  <input type="hidden" name="id" th:value="${onske.id}">
+  <input type="hidden" name="seddelId" th:value="${seddelId}">
+
+  <label for="navn">Navn</label>
+  <input type="text" id="navn" name="navn" th:value="${onske.navn}"><br>
+
+  <label for="pris">Pris</label>
+  <input type="number" id="pris" name="pris" th:value="${onske.pris}"><br>
+
+  <label for="link">Link</label>
+  <input type="text" id="link" name="link" th:value="${onske.link}"><br>
+
+  <button type="submit">Gem</button>
+
+</form>
+
+</body>
+</html>
