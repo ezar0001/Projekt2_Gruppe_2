@@ -1,6 +1,6 @@
 package org.projekt2_gruppe_2.controller;
 
-import org.projekt2_gruppe_2.config.InitData;
+//import org.projekt2_gruppe_2.config.InitData;
 import org.projekt2_gruppe_2.model.Bruger;
 import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
@@ -20,8 +20,8 @@ import java.util.ArrayList;
 @Controller
 public class pageController {
 
-    @Autowired
-    InitData initdata;
+//    @Autowired
+//    InitData initdata;
 
     @Autowired
     OnskeseddelRepository seddelRepo;

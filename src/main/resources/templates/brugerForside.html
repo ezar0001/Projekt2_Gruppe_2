@@ -33,12 +33,19 @@
 
 <div class="seddel-container">
     <div class="seddel" th:each="seddel:${seddelList}">
+        <div style="margin-top:10px; text-align: center;">
+            <a th:href="@{'/deleteSeddel/'+${seddel.id}}" class="button">Slet Seddel</a>
+        </div>
         <a th:href="@{/seddel(id=${seddel.id})}"><img th:src="@{/gave.jpg}" alt="Ønskeseddel billede"></a>
         <div class="seddel-name" th:text="${seddel.navn}">navn</div>
         <div class="seddel-id" th:text="${seddel.id}">id</div>
         <div class="seddel-name" th:text="${seddel.dato}">dato</div>
-        <div style="margin-bottom:10px; text-align: center;">
-            <a th:href="@{'/deleteSeddel/'+${seddel.id}}" class="button">Slet Seddel</a>
+
+        <div style="margin-bottom:10px">
+            <a class="button">Del denne seddel:</a>
+            <input type="text" readonly
+                   th:value="'http://localhost:8080/share?id=' + ${seddel.id}"
+                   style="width: 90%; font-size: 10px;">
         </div>
 
     </div>

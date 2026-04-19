@@ -8,7 +8,7 @@
 <body>
 <div class="container">
     <h2>Opret ny Onskeseddel</h2>
-    <form th:action="@{savecreateOnske}" method="post">
+    <form th:action="@{/savecreateOnske}" method="post">
         <input type="hidden" name="seddelId" th:value="${seddelId}">
 
         <label for="navn">Name:</label>

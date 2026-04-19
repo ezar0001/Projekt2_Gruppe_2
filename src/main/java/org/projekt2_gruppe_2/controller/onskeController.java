@@ -35,6 +35,10 @@ public class onskeController {
                           @RequestParam String link,
                           @RequestParam int antal,
                           @RequestParam int seddelId) {
+        if(!link.startsWith("http://")&&!link.startsWith("https://")){
+            link="https://"+link;
+        }
+
         Onske newOnske = new Onske(0, navn, pris, "gave.jpg", link, antal, seddelId);
 
         onskeRepo.save(newOnske);

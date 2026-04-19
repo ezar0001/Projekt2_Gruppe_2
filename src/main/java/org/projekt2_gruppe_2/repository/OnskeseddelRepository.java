@@ -1,6 +1,6 @@
 package org.projekt2_gruppe_2.repository;
 
-import org.projekt2_gruppe_2.config.InitData;
+//import org.projekt2_gruppe_2.config.InitData;
 import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +15,8 @@ import java.util.ArrayList;
 public class OnskeseddelRepository {
 
 
-    @Autowired
-    InitData initdata;
+//    @Autowired
+//    InitData initdata;
 
     @Autowired
     DataSource dataSource;
