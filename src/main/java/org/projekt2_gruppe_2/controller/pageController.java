@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import javax.sql.DataSource;
+import java.sql.*;
 
 @Controller
 public class pageController {
@@ -29,10 +31,38 @@ public class pageController {
     @Autowired
     OnskeRepository onskeRepo;
 
+    @Autowired
+    DataSource dataSource;
+
     @GetMapping("/")
     public String mainPage() {
         return "forside";
     }
+
+    @GetMapping("/login")
+    public String loginPage() {
+        return "Login";
+    }
+
+    @PostMapping("/login")
+    public String login(@RequestParam String username, @RequestParam String kodeord, Model model) {
+        String sql = "SELECT * FROM bruger WHERE username=? AND kodeord=?";
+        try(Connection connection = dataSource.getConnection();
+            PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, username);
+            statement.setString(2, kodeord);
+            try(ResultSet resultSet = statement.executeQuery()) {
+                if(resultSet.next()) {
+                    return "redirect:/bruger";
+                }
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("error", "Forkert login");
+        return "Login";
+    }
+
 
 
     @GetMapping("/bruger")

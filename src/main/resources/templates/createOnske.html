@@ -1,31 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create Ønskeseddel</title>
-    <link rel="stylesheet" th:href="@{onskeseddel.css}">
+    <title>Nyt Ønske</title>
+    <link rel="stylesheet" th:href="@{/onskeseddel.css}">
 </head>
 <body>
-<div class="container">
-    <h2>Opret ny Onskeseddel</h2>
+<div class="form-container">
+    <h2 style="text-align:center; margin-bottom:20px;">Tilføj nyt ønske</h2>
     <form th:action="@{/savecreateOnske}" method="post">
         <input type="hidden" name="seddelId" th:value="${seddelId}">
-
-        <label for="navn">Name:</label>
-        <input type="text" id="navn" name="navn" placeholder="Enter name" required>
-
-        <label for="pris">Pris:</label>
-        <input type="number" id="pris" name="pris" placeholder="Enter pris" required>
-
-        <label for="link">link:</label>
-        <input type="text" id="link" name="link" placeholder="Enter link" required>
-
-        <label for="antal">antal:</label>
-        <input type="number" id="antal" name="antal" placeholder="Enter antal" required>
-
-        <button type="submit">Gem ønske</button>
+        <input type="text" name="navn" placeholder="Navn på ønsket" required>
+        <input type="number" name="pris" placeholder="Pris" required>
+        <input type="text" name="link" placeholder="Link" required>
+        <button type="submit" style="margin-top:15px;">Gem ønske</button>
     </form>
+    <div style="text-align:center; margin-top:15px;">
+        <a th:href="@{/seddel(id=${seddelId})}" style="color:#ff8c00; text-decoration:none;">Annuller</a>
+    </div>
 </div>
-
 </body>
 </html>

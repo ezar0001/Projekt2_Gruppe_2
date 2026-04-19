@@ -1,56 +1,36 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Page</title>
+    <title>Mine ønskesedler</title>
     <link rel="stylesheet" th:href="@{/style.css}">
-
 </head>
-
-
 <body>
-
-
 <nav>
-    <div class="logo">
-        <a th:href="@{/}"><img th:src="@{Logo.png}" alt="Logo"></a>
-    </div>
-    <div>
-        <a th:href="@{/}">Log Ud</a>
-    </div>
+    <a th:href="@{/}">
+        <img th:src="@{/Logo.png}" alt="Logo" style="height:40px; vertical-align:middle; margin-right:10px;">Ønskeliste
+    </a>
+    <a th:href="@{/}">Log ud</a>
 </nav>
-
-
 <div class="user-section">
-    <img th:src="@{gave.jpg}" alt="Bruger Logo">
-    <div class="username">John Doe</div>
-   <a th:href="@{/createSeddel}" class="create-seddel">Create Seddel</a>
+    <div class="username">Mine ønskesedler</div>
+    <a th:href="@{/createSeddel}" class="create-seddel">Opret ny ønskeseddel</a>
 </div>
-
-
-
 <div class="seddel-container">
-    <div class="seddel" th:each="seddel:${seddelList}">
-        <div style="margin-top:10px; text-align: center;">
-            <a th:href="@{'/deleteSeddel/'+${seddel.id}}" class="button">Slet Seddel</a>
+    <div class="seddel" th:each="seddel : ${seddelList}">
+        <img th:src="@{/gave.jpg}" alt="Gave" style="width:100%; height:120px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+        <div class="seddel-name" th:text="${seddel.navn}">Navn</div>
+        <div class="seddel-id" th:text="'Dato: ' + ${seddel.dato}">Dato</div>
+        <div style="margin-top:10px;">
+            <a th:href="@{/seddel(id=${seddel.id})}" class="create-seddel" style="display:inline-block; padding:8px 12px; font-size:12px;">Se ønsker</a>
+            <a th:href="@{'/deleteSeddel/'+${seddel.id}}" class="create-seddel" style="display:inline-block; padding:8px 12px; font-size:12px; background:#ff4444;">Slet</a>
         </div>
-        <a th:href="@{/seddel(id=${seddel.id})}"><img th:src="@{/gave.jpg}" alt="Ønskeseddel billede"></a>
-        <div class="seddel-name" th:text="${seddel.navn}">navn</div>
-        <div class="seddel-id" th:text="${seddel.id}">id</div>
-        <div class="seddel-name" th:text="${seddel.dato}">dato</div>
-
-        <div style="margin-bottom:10px">
-            <a class="button">Del denne seddel:</a>
-            <input type="text" readonly
-                   th:value="'http://localhost:8080/share?id=' + ${seddel.id}"
-                   style="width: 90%; font-size: 10px;">
+        <div style="margin-top:15px">
+            <span style="font-size:12px; color:#555; display:block; margin-bottom:5px;">Del link:</span>
+            <input type="text" readonly th:value="'https://app-wishlist-bf025343.azurewebsites.net/share?id=' + ${seddel.id}" style="width:100%; padding:5px; font-size:10px; border:1px solid #ddd; border-radius:4px; text-align:center;">
         </div>
-
     </div>
 </div>
-
 </body>
 </html>
-

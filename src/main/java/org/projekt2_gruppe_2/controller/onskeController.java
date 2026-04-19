@@ -33,13 +33,12 @@ public class onskeController {
     public String addWish(@RequestParam String navn,
                           @RequestParam int pris,
                           @RequestParam String link,
-                          @RequestParam int antal,
                           @RequestParam int seddelId) {
         if(!link.startsWith("http://")&&!link.startsWith("https://")){
             link="https://"+link;
         }
 
-        Onske newOnske = new Onske(0, navn, pris, "gave.jpg", link, antal, seddelId);
+        Onske newOnske = new Onske(0, navn, pris, "gave.jpg", link, 1, seddelId);
 
         onskeRepo.save(newOnske);
         return "redirect:/seddel?id=" + seddelId;

@@ -81,12 +81,13 @@ public class OnskeseddelRepository {
     }
 
 public void save (Onskeseddel seddel){
-     String sql="INSERT INTO onskeseddel(navn, dato) VALUES (?,?)";
+     String sql="INSERT INTO onskeseddel(navn, dato, bruger_id) VALUES (?,?,?)";
 
      try(Connection connection =dataSource.getConnection();
      PreparedStatement statement = connection.prepareStatement(sql)){
         statement.setString(1,seddel.getNavn());
         statement.setDate(2, Date.valueOf(seddel.getDato()));
+        statement.setInt(3, 1);
 
         statement.executeUpdate();
 

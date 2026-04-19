@@ -1,27 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" th:href="@{/login.css}">
 </head>
-
 <body>
-
 <div class="login-container">
-    <h2>Login</h2>
-
-    <p>test logind: Kasper / 123</p>
-
+    <h2>Velkommen tilbage</h2>
+    <p th:if="${error}" class="error" th:text="${error}"></p>
+    <p>Test login: Kasper / 123</p>
     <form action="/login" method="post">
-        <label>
-            <input type="text" name="username" value="Kasper" placeholder="Brugernavn">
-
-            <input type="password" name="kodeord" value="123" placeholder="Kodeord">
-        </label>
+        <input type="text" name="username" placeholder="Brugernavn" required>
+        <input type="password" name="kodeord" placeholder="Kodeord" required>
         <button type="submit">Log ind</button>
     </form>
-
 </div>
-
 </body>
 </html>

@@ -30,7 +30,7 @@ public class OnskeRepository {
             while(resultSet.next()){
                 Onske onske = new Onske();
                 onske.setId(resultSet.getInt("id"));
-                onske.setOnskeSeddelId(resultSet.getInt("onskeseddel_id"));
+                onske.setOnskeSeddelId(resultSet.getInt("onske_seddel_id"));
                 onske.setNavn(resultSet.getString("navn"));
                 onske.setPris(resultSet.getInt("pris"));
                 onske.setLink(resultSet.getString("link"));
@@ -83,7 +83,7 @@ public class OnskeRepository {
     }
 
     public void save (Onske onske){
-        String sql="INSERT INTO onske(navn, pris, link, antal, onskeseddel_id,billed) VALUES (?,?,?,?,?,?)";
+        String sql="INSERT INTO onske(navn, pris, link, antal, onske_seddel_id,img) VALUES (?,?,?,?,?,?)";
 
         try(Connection connection =dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)){
