@@ -51,7 +51,7 @@ public class pageController {
 
         ArrayList<Onske>onskeList = new ArrayList<>();
         for(Onske o: onskeRepo.getAllOnske()){
-            if (o.getSeddelbyID==id){
+            if (o.getOnskeSeddelId()==id){
                 onskeList.add(o);
             }
         }

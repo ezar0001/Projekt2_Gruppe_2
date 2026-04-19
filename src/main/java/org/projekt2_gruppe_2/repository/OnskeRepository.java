@@ -21,7 +21,7 @@ public class OnskeRepository {
     //Dette sender informationer til sql database
     public ArrayList<Onske> getAllOnske(){
         ArrayList<Onske> onskeList = new ArrayList<>();
-        String sql="SELECT * FROM onskeseddel";
+        String sql="SELECT * FROM onske";
 
         try(Connection connection=dataSource.getConnection();
             PreparedStatement statement=connection.prepareStatement(sql);
