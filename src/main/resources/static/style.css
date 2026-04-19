@@ -1,76 +1,129 @@
-
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+:root {
+    --primary-orange: #ff7a00;
+    --dark-orange: #e66d00;
+    --danger-red: #d93025;
+    --bg-light: #f8f9fa;
+    --shadow: 0 4px 6px rgba(0,0,0,0.1);
 }
 
-nav {
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: var(--bg-light);
+    color: #333;
+}
+
+/* Navigation */
+nav, .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: #333;
-    color: white;
+    padding: 15px 40px;
+    background-color: white;
+    box-shadow: var(--shadow);
 }
 
-nav img {
-    height: 40px;
-}
-
-nav a {
-    color: white;
+nav a, .logo {
+    color: var(--primary-orange);
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
-
-.user-section {
+/* Layout Containers */
+.container, .seddel-container {
     display: flex;
-    align-items: center;
-    gap:10px;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+    justify-content: center;
+}
+
+/* Cards (Seddel & Onske) */
+.seddel, .square {
+    background: white;
+    border-radius: 12px;
     padding: 20px;
+    width: 280px;
+    position: relative; /* Needed for bottom-right button */
+    box-shadow: var(--shadow);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.seddel:hover, .square:hover {
+    transform: translateY(-5px);
+}
+
+.seddel img, .square img {
     width: 100%;
-}
-
-.create-seddel{
-    margin-left:auto;
-}
-
-.user-section img {
-    height: 60px;
-}
-
-.username {
-    font-size: 20px;
-    font-weight: bold;
-}
-.seddel-container{
-    display:flex;
-    flex-wrap:wrap;
-    padding:10px;
-}
-
-.seddel{
-    width: 200px;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    text-align: center;
+    height: 180px;
+    object-fit: cover;
     border-radius: 8px;
 }
 
-.seddel img {
+/* Form Styles */
+.form-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+input {
     width: 100%;
-    border-radius: 5px;
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
 }
 
-.seddel-name {
-    margin-top: 10px;
-    font-size: 16px;
-    font-weight:bold;
+/* Shared Buttons */
+.button, .btn {
+    display: inline-block;
+    background-color: var(--primary-orange);
+    color: white !important;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
 }
 
-.seddel-id{
-    font-size:13px;
-    color:#888;
+.button:hover, .btn:hover {
+    background-color: var(--dark-orange);
+}
+
+/* Delete Buttons (Bottom Right) */
+.delete-btn {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background-color: var(--danger-red);
+    color: white !important;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.delete-btn:hover {
+    background-color: #a50e0e;
+}
+
+/* Utility */
+.label-group {
+    font-size: 14px;
+    text-align: left;
+}
+
+.label-group b {
+    color: var(--primary-orange);
 }

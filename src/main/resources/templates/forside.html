@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="da">
 <head>
@@ -22,6 +23,39 @@
     <h1>Lav din ønskeseddel online</h1>
     <p>Samle dine ønsker ét sted og del dem med venner og familie</p>
     <a class="button">Kom i gang!</a>
+</section>
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Velkommen til Ønskeseddel</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <style>
+        .hero {
+            display: flex; flex-direction: column; align-items: center;
+            justify-content: center; text-align: center; height: 80vh;
+        }
+        .hero h1 { font-size: 3rem; margin-bottom: 20px; color: var(--primary-orange); }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <div class="logo">Ønskeseddel</div>
+    <nav style="box-shadow: none; padding: 0;">
+        <a th:href="@{/login}">Log ind</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>Lav din ønskeseddel online</h1>
+    <p>Saml dine ønsker ét sted og del dem med dem, du holder af.</p>
+    <a th:href="@{/login}" class="button">Kom i gang!</a>
 </section>
 
 </body>

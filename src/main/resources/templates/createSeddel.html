@@ -1,23 +1,24 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="da" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Create Ønskeseddel</title>
-    <link rel="stylesheet" th:href="@{onskeseddel.css}">
+    <title>Opret Ønske</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
 </head>
 <body>
-<div class="container">
-   <h2>Opret ny Onskeseddel</h2>
-    <form th:action="@{saveCreateSeddel}" method="post">
-        <label for="Navn">Name:</label>
-        <input type="text" id="navn" name="navn" placeholder="Enter name" required>
+<div class="form-container">
+    <h2>Opret nyt ønske</h2>
+    <form th:action="@{/saveCreateSeddel}" method="post">
+
+        <label for="navn">Navn:</label>
+        <input type="text" id="navn" name="navn" placeholder="Hvad ønsker du dig?" required>
 
         <label for="dato">Dato:</label>
         <input type="date" id="dato" name="dato" placeholder="Enter date" required>
 
-        <button type="submit">Create Seddel</button>
+        <button type="submit" class="button" style="width: 100%;">Gem ønske</button>
     </form>
 </div>
-
 </body>
 </html>
