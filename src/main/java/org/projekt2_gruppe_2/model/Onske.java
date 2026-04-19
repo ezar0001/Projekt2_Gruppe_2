@@ -28,6 +28,17 @@ public class Onske {
         this.antal = antal;
     }
 
+    public Onske(int id, String navn, int pris, String link, int antal, int onskeSeddelId){
+        this.id = id;
+        this.navn = navn;
+        this.pris = pris;
+        this.link = link;
+        this.antal = antal;
+        this.onskeSeddelId=onskeSeddelId;
+    }
+
+    public Onske(){}
+
     public int getId() {
         return id;
     }

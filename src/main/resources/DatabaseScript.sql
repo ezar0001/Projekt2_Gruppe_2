@@ -27,7 +27,7 @@ INSERT INTO onskeseddel(bruger_id,navn, dato) VALUES
     (1,'Julegaver', '24. December');
 
 
-CREATE TABLE ønske (
+CREATE TABLE onske (
                        id INT AUTO_INCREMENT PRIMARY KEY,
                        onskeseddel_id INT NOT NULL,
                        FOREIGN KEY (onskeseddel_id) REFERENCES onskeseddel(id),

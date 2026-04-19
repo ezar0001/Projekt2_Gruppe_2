@@ -4,6 +4,7 @@ import org.projekt2_gruppe_2.config.InitData;
 import org.projekt2_gruppe_2.model.Bruger;
 import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
+import org.projekt2_gruppe_2.repository.OnskeRepository;
 import org.projekt2_gruppe_2.repository.OnskeseddelRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,9 @@ public class pageController {
 
     @Autowired
     OnskeseddelRepository seddelRepo;
+
+    @Autowired
+    OnskeRepository onskeRepo;
 
     @GetMapping("/")
     public String mainPage(){
@@ -46,8 +50,8 @@ public class pageController {
     public String seddelPage(@RequestParam int id, Model model){
 
         ArrayList<Onske>onskeList = new ArrayList<>();
-        for(Onske o: initdata.getOnskeList()){
-            if (o.getOnskeSeddelId()==id){
+        for(Onske o: onskeRepo.getAllOnske()){
+            if (o.getSeddelbyID==id){
                 onskeList.add(o);
             }
         }
