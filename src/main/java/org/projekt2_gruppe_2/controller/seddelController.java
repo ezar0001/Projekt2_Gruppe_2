@@ -20,7 +20,6 @@ public class seddelController {
     @PostMapping("/saveCreateSeddel")
     public String createSeddel (@RequestParam String navn, @RequestParam String dato){
         LocalDate localdateDato = LocalDate.parse(dato);
-//        int newId = initdata.getOnskeseddelList().size()+1;
 
         Onskeseddel seddel= new Onskeseddel(navn, localdateDato);
         seddelRepo.save(seddel);

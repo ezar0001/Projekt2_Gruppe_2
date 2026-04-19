@@ -19,7 +19,7 @@
 </div>
 <div class="seddel-container">
     <div class="seddel" th:each="seddel : ${seddelList}">
-        <img th:src="@{/gave.jpg}" alt="Gave" style="width:100%; height:120px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+        <img th:src="@{/gave.jpg}" alt="Gave" style="width:100%; height:150px; object-fit:contain; margin-bottom:10px;">
         <div class="seddel-name" th:text="${seddel.navn}">Navn</div>
         <div class="seddel-id" th:text="'Dato: ' + ${seddel.dato}">Dato</div>
         <div style="margin-top:10px;">

@@ -1,7 +1,5 @@
 package org.projekt2_gruppe_2.controller;
 
-//import org.projekt2_gruppe_2.config.InitData;
-import org.projekt2_gruppe_2.model.Bruger;
 import org.projekt2_gruppe_2.model.Onske;
 import org.projekt2_gruppe_2.model.Onskeseddel;
 import org.projekt2_gruppe_2.repository.OnskeRepository;
@@ -22,8 +20,6 @@ import java.sql.*;
 @Controller
 public class pageController {
 
-//    @Autowired
-//    InitData initdata;
 
     @Autowired
     OnskeseddelRepository seddelRepo;
@@ -112,30 +108,4 @@ public class pageController {
 
         return "publicSeddel";
     }
-    //ny
-
-
-//    @PostMapping ("/login")
-//    public String login (@RequestParam String username,@RequestParam String kodeord, Model model ){
-//        for (Bruger b : initdata.getBrugerList()){
-//            if (b.getUsername().equals(username) && b.getKodeord().equals(kodeord)){
-//                return "redirect:/bruger";
-//
-//
-//            }
-//        }
-//        model.addAttribute("error", "Forkert login");
-//        return "forside";
-//    }
-
-    //skal ind i onskeController
-//    @PostMapping("/addWish")
-//    public String addWish (@RequestParam String navn, @RequestParam int pris,@RequestParam String link){
-//        int newId = initdata.getOnskeList().size()+1;
-//
-//        initdata.getOnskeList().add(new Onske(newId,navn,pris, "gave.jpg",link,1,1));
-//
-//        return "redirect:/seddel?id=1";
-//    }
-//skal ind i seddelController
 }

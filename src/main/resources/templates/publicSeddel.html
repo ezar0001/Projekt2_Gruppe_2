@@ -13,7 +13,7 @@
 </div>
 <div class="container">
     <div class="square" th:each="onske : ${onskeList}">
-        <img th:src="@{/gave.jpg}" alt="Gave" style="width:100%; height:150px; object-fit:cover; border-radius:8px; margin-bottom:10px;">
+        <img th:src="@{/gave.jpg}" alt="Gave" style="width:100%; height:150px; object-fit:contain; margin-bottom:10px;">
         <label>Navn:</label>
         <span th:text="${onske.navn}">Navn</span>
         <label>Pris:</label>
