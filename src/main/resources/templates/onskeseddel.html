@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -8,23 +9,15 @@
 </head>
 <body>
 <div class="container">
-
-    <form action="/addWish" method="post" style="margin-bottom:20px;">
-
-        <label for="name">Navn</label>
-        <input type="text" id="name" name="navn" placeholder="Navn"><br><br>
-
-        <label for="pris">Pris</label>
-        <input type="number" id="pris" name="pris" placeholder="Pris"><br><br>
-
-        <label for="link">Link</label>
-        <input type="text" id="link" name="link" placeholder="Link"><br><br>
-
-        <button type="submit"> Tilføj ønske </button>
-
-    </form>
+    <div style="margin-bottom:20px">
+        <a th:href="@{createOnske(seddelId=${param.id})}" class=" btn">Tilføj nyt ønske</a>
+        </div>
+    </div>
 
     <div class="square" th:each="onske : ${onskeList}">
+            <div style="margin-top:10px; text-align: center;">
+                <a th:href="@{'/deleteOnske/'+${onske.id}(seddelId=${param.id})}" class="btn" style="font-size:10px; padding:6px 14px; background-color:#ff7a00;">Slet Ønske</a>
+            </div>
         <img th:src="@{gave.jpg}" alt="Car Image" />
         <div>
             <label>ID:</label>
@@ -43,7 +36,7 @@
 
         <div>
             <label>Link</label>
-            <a th:href="${onske.link}" target="_blank">Se produkt</a>
+            <a th:href="${onske.link}" target="blank">Se produkt</a>
         </div>
 
         <div>
@@ -51,8 +44,11 @@
             <span th:text="${onske.antal}">Antal</span>
         </div>
 
+
     </div>
-</div>
+
 
 </body>
 </html>
+
+

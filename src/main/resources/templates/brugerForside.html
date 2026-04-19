@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
@@ -36,9 +37,13 @@
         <div class="seddel-name" th:text="${seddel.navn}">navn</div>
         <div class="seddel-id" th:text="${seddel.id}">id</div>
         <div class="seddel-name" th:text="${seddel.dato}">dato</div>
+        <div style="margin-bottom:10px; text-align: center;">
+            <a th:href="@{'/deleteSeddel/'+${seddel.id}}" class="button">Slet Seddel</a>
+        </div>
 
     </div>
 </div>
 
 </body>
 </html>
+

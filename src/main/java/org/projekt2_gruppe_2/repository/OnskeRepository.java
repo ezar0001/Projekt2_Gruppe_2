@@ -83,14 +83,16 @@ public class OnskeRepository {
     }
 
     public void save (Onske onske){
-        String sql="INSERT INTO onske(navn, pris, link, antal) VALUES (?,?,?,?)";
+        String sql="INSERT INTO onske(navn, pris, link, antal, onskeseddel_id,billed) VALUES (?,?,?,?,?,?)";
 
         try(Connection connection =dataSource.getConnection();
             PreparedStatement statement = connection.prepareStatement(sql)){
             statement.setString(1,onske.getNavn());
-            statement.setInt(2, onske.getPris());
+            statement.setDouble(2, onske.getPris());
             statement.setString(3, onske.getLink());
             statement.setInt(4,onske.getAntal());
+            statement.setInt(5,onske.getOnskeSeddelId());
+            statement.setString(6,"gave.jpg");
 
             statement.executeUpdate();
 
